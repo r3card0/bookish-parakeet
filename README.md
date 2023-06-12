@@ -16,3 +16,15 @@ Se puede ejecutar VSCode desde la terminal. Solo se ejecuta el comando **code . 
 2. Presiona ```cmd + shift + p ``` o si estás en windows ``` ctrl + shift + p ```
 3. Buscar una opción que diga lo siguiente: ```Shell Command: Install 'code' command in $PATH ``` y seleccionarla
 
+# Cambio de nombre del repositorio principal
+Para configurar el nombre inicial de la rama principal de un repositorio para usar en todos los repositorios, se pued usar el siguiente comando:
+```
+git config --global init.defaultBranch "main"
+```
+
+Para cambiar el nombre del repositorio de forma local unicamente para el repositorio elegido y no el general, se puede usar el siguiente comando:
+```
+git branch -m "name"
+```
+
+
