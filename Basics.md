@@ -10,7 +10,134 @@ fatal: refusing to merge unrelated histories
 ```bash
 git pull --allow-unrelated-histories origin main
 ```
-* Is goign to appear a vim window to set a commit message
+* Is going to appear a vim window to set a commit message
+
+# Mejores prácticas para el nombramiento de branches (ramas)
+En Git, nombrar ramas (branches) de manera consistente y descriptiva es fundamental para mantener un proyecto organizado, especialmente en equipos de trabajo. Aquí te dejo las mejores prácticas para nombrar ramas:
+
+---
+
+### **1. Sé descriptivo y claro:**
+El nombre de la rama debe reflejar su propósito o el trabajo que se realizará en ella. Por ejemplo:
+- Para una nueva funcionalidad: `feature/nombre-de-la-funcionalidad`
+- Para solucionar un bug: `bugfix/id-del-bug-o-descripcion`
+
+---
+
+### **2. Usa un formato consistente:**
+Adopta una convención de nombres y úsala siempre. Estas son algunas convenciones comunes:
+
+#### a) **Basado en el propósito:**
+- `feature/`: Para el desarrollo de nuevas funcionalidades.
+- `bugfix/`: Para corregir errores.
+- `hotfix/`: Para cambios urgentes en producción.
+- `release/`: Para preparar una nueva versión.
+- `chore/`: Para tareas de mantenimiento o ajustes menores.
+
+Ejemplo:  
+```bash
+feature/nueva-pagina-contacto
+bugfix/error-de-login
+release/v1.2.0
+chore/actualizar-dependencias
+```
+
+---
+
+#### b) **Usa kebab-case o snake_case:**
+- **kebab-case (recomendado):** Palabras separadas por guiones. Ejemplo: `feature/crear-reporte-ventas`.
+- **snake_case:** Palabras separadas por guiones bajos. Ejemplo: `feature/crear_reporte_ventas`.
+
+---
+
+### **3. Opcional: Incluye identificadores de tareas o tickets:**
+Si usas herramientas como Jira, GitHub Issues o Trello, puedes incluir el identificador de la tarea para mayor trazabilidad:
+- Ejemplo: `feature/JIRA-1234-crear-dashboard`
+- Ejemplo: `bugfix/issue-567-arreglar-header`
+
+---
+
+### **4. Evita nombres genéricos:**
+No uses nombres como `new`, `test`, `branch1`, ya que no indican el propósito del trabajo. Siempre opta por nombres descriptivos.
+
+---
+
+### **5. Mantén los nombres cortos pero significativos:**
+Evita nombres demasiado largos, pero asegúrate de que sean lo suficientemente claros. Por ejemplo, en lugar de:
+```bash
+feature/agregar-funcionalidad-de-exportar-tablas-con-muchos-datos
+```
+Puedes usar:
+```bash
+feature/exportar-tablas
+```
+
+---
+
+### **6. No incluyas información redundante:**
+Git ya gestiona ramas por contexto, así que evita prefijos innecesarios como `branch-`.
+
+---
+
+### Ejemplo práctico:
+Para una tarea que consiste en crear un sistema de login:
+```bash
+feature/sistema-login
+```
+
+Para arreglar un error en la funcionalidad de registro:
+```bash
+bugfix/arreglo-registro
+```
+
+---
+
+# Pasos para crear un nuevo branch
+
+Para corregir los enlaces a carpetas como `css` e `images` en un archivo HTML, lo ideal es crear una rama con un nombre que refleje claramente la tarea. Una convención recomendada para este caso sería usar el prefijo `fix/` seguido de una descripción breve, como `fix/corrige-rutas-enlaces`.
+
+### **Pasos con comandos:**
+
+#### 1. **Crea la nueva rama:**
+```bash
+git checkout -b fix/corrige-rutas-enlaces
+```
+Esto crea una nueva rama basada en la actual y cambia a ella.
+
+#### 2. **Haz las correcciones necesarias:**
+Edita el archivo HTML y corrige las rutas hacia `css` e `images`.
+
+#### 3. **Confirma los cambios:**
+Guarda los archivos y luego realiza los siguientes pasos en Git:
+```bash
+git add .
+git commit -m "Corrige las rutas de los enlaces a css e images"
+```
+
+#### 4. **Envía la rama al repositorio remoto:**
+```bash
+git push origin fix/corrige-rutas-enlaces
+```
+
+---
+
+### **Explicación del nombre de la rama:**
+- **`fix/`**: Indica que esta rama es para solucionar un problema.
+- **`corrige-rutas-enlaces`**: Describe claramente qué problema estás resolviendo.
+
+---
+
+### **Siguientes pasos:**
+1. Crea un *pull request* (PR) en tu repositorio remoto (GitHub, GitLab, etc.) para revisar e integrar los cambios.
+2. Una vez aprobada y fusionada la PR, puedes eliminar la rama local y remota:
+   ```bash
+   git branch -d fix/corrige-rutas-enlaces
+   git push origin --delete fix/corrige-rutas-enlaces
+   ```
+
+---
+
+¿Quieres ayuda para estructurar las rutas correctamente o realizar la integración? 😊
 
 
 # Pasos para hacer un merge entre `branch` en Git local
